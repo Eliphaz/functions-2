@@ -6,13 +6,15 @@
 */
 
 // CODE HERE
-
+const multiply = (num1, num2, callback) =>{
+  return callback(num1*num2)
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// multiply(4, 3, answer => {
+//multiply(4, 3, answer => {
 //   console.log('The answer is ' + answer) //should console.log 12
 // })
 
@@ -36,7 +38,9 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE 
-
+const first = (arr, callback) =>{
+  return callback(arr)
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
@@ -56,7 +60,9 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
-
+const last = (arr, callback) =>{
+  callback(arr[arr.length -1])
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
@@ -78,19 +84,26 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE 
+const contains = (arr, name, callback) =>{
+  if(arr.includes(name)){
+    callback(true)
+  }else{
+    callback(false)
+  }
+}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// contains(names, 'Colt', result => {
-//   if(result === true){
-//     console.log('Colt is in the array')
-//   } else {
-//     console.log('Colt is not in the array')
-//   }
-// })
+contains(names, 'Colt', result => {
+  if(result === true){
+    console.log('Colt is in the array')
+  } else {
+    console.log('Colt is not in the array')
+  }
+})
 
 
 
@@ -103,6 +116,11 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
+const uniq = (arr, callback)=>{
+  let mySet = new Set(arr)
+  let uniqeArr = Array.from(mySet)
+  return callback(uniqeArr)
+}
 
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
@@ -112,7 +130,7 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
-
+uniq(names, (uniqArr) => console.log(`the new names array with the duplicate items removed is ${uniqArr}`))
 
 
 ////////// PROBLEM 6 //////////
@@ -123,6 +141,9 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE 
+const each = (arr, callback) => {
+  arr.forEach((element, index) => callback(element, index))
+}
 
 
 /*
@@ -133,14 +154,11 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
-
+each(names, (item, index) => console.log(`the item at index ${index} is ${item}`))
 
 ////////// PROBLEM 7 //////////
 
-/*
-  Write a function called getUserById that takes in three parameters: an array of objects (users), an id and a callback, and searches for the user with a matching id.
-  When the correct user object is found, invoke the callback with the user object as an argument.
-*/
+
 
 // Do not edit the code below.
 var users = [
@@ -164,9 +182,21 @@ var users = [
   },
 ]
 // Do not edit the code above.
-
+/*
+  Write a function called getUserById that takes in three parameters: an array of objects (users), an id and a callback, and searches for the user with a matching id.
+  When the correct user object is found, invoke the callback with the user object as an argument.
+*/
 // CODE HERE 
-
+const getUserById = (arrOfObj, id, callback) =>{
+  arrOfObj.forEach((element, index) =>
+    element.id === id => 
+      {callback(element[index])}
+  }
+  )
+  console.log(arrOfObj[0])
+  
+}
+getUserById(users)
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
