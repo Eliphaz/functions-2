@@ -130,7 +130,7 @@ const uniq = (arr, callback)=>{
 */
 
 // CODE HERE
-uniq(names, (uniqArr) => console.log(`the new names array with the duplicate items removed is ${uniqArr}`))
+uniq(names, (uniqArr) => console.log((`the new names array with the duplicate items removed is ${uniqArr}`)))
 
 
 ////////// PROBLEM 6 //////////
@@ -187,24 +187,22 @@ var users = [
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 // CODE HERE 
-const getUserById = (arrOfObj, id, callback) =>{
-  arrOfObj.forEach((element, index) =>
-    element.id === id => 
-      {callback(element[index])}
-  }
-  )
-  console.log(arrOfObj[0])
-  
+const getUserById = (arrOfObj, number, callback) =>{
+  arrOfObj.forEach((element) => {
+    if(element.id === number){
+      callback(element)
+    }
+  })
 }
-getUserById(users)
+//getUserById(users, "16t")
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// getUserById(users, '16t', user => {
-//   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
-// })
+getUserById(users, '16t', user => {
+  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
+})
 
 ////////// CHALLENGE //////////
 
